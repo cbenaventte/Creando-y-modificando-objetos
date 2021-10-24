@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio Creando y modificando objetos</title>
+  </head>
+  <body>
+    <script>
+     
+      function Consultorio(nombre, paciente) {
+        var _nombre = nombre;
+        var _paciente = paciente;
+
+        Object.defineProperty(this, "_nombre", {
+          get: function () {
+            return _nombre;
+          },
+          set: function (nuevoNombre) {
+            _nombre = nuevoNombre;
+          },
+        });
+
+        Object.defineProperty(this, "_paciente", {
+          get: function () {
+            return _paciente;
+          },
+        });
+      }
+
+      function Paciente(nombre, edad, rut, diagnostico) {
+        var _nombre = nombre;
+        var _edad = edad;
+        var _rut = rut;
+        var _diagnostico = diagnostico;
+
+        Object.defineProperty(this, "_nombre", {
+          get: function () {
+            return _nombre;
+          },
+          set: function (nuevoNombre) {
+            _nombre = nuevoNombre;
+          },
+        });
+
+        Object.defineProperty(this, "_edad", {
+          get: function () {
+            return _edad;
+          },
+          set: function (nuevaEdad) {
+            _edad = nuevaEdad;
+          },
+        });
+
+        Object.defineProperty(this, "_rut", {
+          get: function () {
+            return _rut;
+          },
+          set: function (nuevoRut) {
+            _rut = nuevoRut;
+          },
+        });
+
+        Object.defineProperty(this, "_diagnostico", {
+          get: function () {
+            return _diagnostico;
+          },
+          set: function (nuevoDiagnostico) {
+            _diagnostico = nuevoDiagnostico;
+          },
+        });
+      }
+      
+      Consultorio.prototype.getNombreCosultorio = function () {
+        return this._nombre;
+      };
+      Paciente.prototype.getNombrePaciente = function () {
+        return this._nombre;
+      };
+
+      Consultorio.prototype.setNombreCosultorio = function (nuevoNombre) {
+        this._nombre = nuevoNombre;
+      };
+
+      Paciente.prototype.setNombrePaciente = function (nuevoNombre) {
+        this._nombre = nuevoNombre;
+      };
+
+
+      Paciente.prototype.getEdadPaciente = function (){
+          return this._edad;
+      };
+      Paciente.prototype.setEdadPaciente = function (nuevaEdad){
+        this._edad = nuevaEdad;
+      };
+
+      Paciente.prototype.getRutPaciente = function (){
+          return this._rut;
+      };
+      Paciente.prototype.setRutPaciente = function (nuevoRut){
+        this._rut = nuevoRut;
+      };
+
+      Paciente.prototype.getDiagnosticoPaciente = function (){
+          return this._diagnostico;
+      };
+      Paciente.prototype.setDiagnosticoPaciente = function (nuevoDiagnostico){
+        this._diagnostico = nuevoDiagnostico;
+      };
+
+
+      var paciente1 = new Paciente('Juan', 30, '12345678-9','diagnosticoUno');
+      var paciente2 = new Paciente('Lucho', 40, '22356987-5', 'diagnosticoDos')
+      var consultorio1 = new Consultorio('ConsultorioUno', paciente1);
+      var consultorio2 = new Consultorio('ConsultorioDos', paciente2)
+      console.log(paciente1)
+      console.log(consultorio1)
+      console.log(paciente1.setNombrePaciente());
+      console.log(consultorio1.getNombreCosultorio());
+      console.log(paciente1.setNombrePaciente("Pedrito"));
+      console.log(paciente1.setEdadPaciente(25));
+
+      console.log(paciente2)
+      console.log(consultorio2)
+      console.log(paciente2.setRutPaciente("23145786-k"));
+
+    </script>
+  </body>
+</html>
